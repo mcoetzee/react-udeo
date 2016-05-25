@@ -1,5 +1,5 @@
 # react-udeo (alpha)
-React bindings for [Udeo](http://github.com/ReactiveX/RxJS)
+React bindings for [Udeo](https://github.com/mcoetzee/udeo)
 
 ## Install
 
