@@ -1,0 +1,71 @@
+{
+  "name": "react-udeo",
+  "version": "0.0.0-alpha.1",
+  "description": "React bindings for Udeo",
+  "main": "lib/index.js",
+  "scripts": {
+    "lint": "eslint src && eslint test",
+    "build": "npm run lint && rm -rf lib && babel src -d lib",
+    "build_tests": "rm -rf temp && babel test -d temp",
+    "clean": "rimraf ./lib; rimraf ./temp;",
+    "test": "npm run build && npm run build_tests && mocha --require ./temp/setup.js temp",
+    "prepublish": "npm test"
+  },
+  "files": [
+    "lib",
+    "README.md",
+    "LICENSE"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mcoetzee/react-udeo.git"
+  },
+  "keywords": [
+    "Rx",
+    "RxJS",
+    "state",
+    "streams",
+    "unidirectional",
+    "data",
+    "flow",
+    "observable",
+    "reactive",
+    "programming"
+  ],
+  "author": "Markus Coetzee <mks.coetzee@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mcoetzee/react-udeo/issues"
+  },
+  "homepage": "https://github.com/mcoetzee/react-udeo#readme",
+  "peerDependencies": {
+    "rxjs": "^5.0.0-beta.6",
+    "react": "^0.14.0 || ^15.0.0-0"
+  },
+  "dependencies": {
+    "invariant": "^2.0.0"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.7.5",
+    "babel-eslint": "^6.0.3",
+    "babel-plugin-transform-es2015-modules-commonjs": "^6.7.4",
+    "babel-plugin-transform-function-bind": "^6.5.2",
+    "babel-plugin-transform-object-rest-spread": "^6.6.5",
+    "babel-polyfill": "^6.7.4",
+    "babel-preset-es2015": "^6.6.0",
+    "babel-preset-react": "6.5.0",
+    "babel-register": "^6.7.2",
+    "chai": "^3.5.0",
+    "enzyme": "2.3.0",
+    "eslint": "^2.10.2",
+    "eslint-plugin-react": "^3.6.3",
+    "jsdom": "9.2.0",
+    "mocha": "^2.4.5",
+    "react": "^0.14.0",
+    "react-addons-test-utils": "^0.14.0",
+    "react-dom": "^0.14.0",
+    "rimraf": "^2.5.2",
+    "rxjs": "^5.0.0-beta.6",
+    "udeo": "0.0.0-alpha.1"
+  }
+}
