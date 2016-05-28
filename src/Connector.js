@@ -1,6 +1,7 @@
 import React from 'react';
 import { Observable } from 'rxjs';
 import invariant from 'invariant';
+import { storeShape } from './storeShape';
 
 export function Connector(Component, store) {
   this.Component = Component;
@@ -116,6 +117,9 @@ Connector.prototype.build = function() {
     }
   }
   _.displayName = connectorDisplayName;
+  _.contextTypes = {
+    store: storeShape
+  };
   return _;
 };
 
