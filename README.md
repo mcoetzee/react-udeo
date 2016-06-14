@@ -1,4 +1,4 @@
-# react-udeo (alpha)
+# react-udeo (experimental)
 React bindings for [Udeo](https://github.com/mcoetzee/udeo)
 
 Provides:
