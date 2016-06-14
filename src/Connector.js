@@ -3,6 +3,12 @@ import { Observable } from 'rxjs';
 import invariant from 'invariant';
 import { storeShape } from './storeShape';
 
+/**
+ * Connects the provided component to the Udeo store.
+ * @param Component - The React component to be connected to the store
+ * @param [store] - The Udeo store. Optionally provided in order to use the Connector without
+ * the Provider
+ */
 export function Connector(Component, store) {
   this.Component = Component;
   this.store = store;
@@ -60,7 +66,7 @@ Connector.prototype.build = function() {
   const builder = this;
   const connectorDisplayName = 'Connector(' + (builder.Component.displayName || builder.Component.name || 'Unknown') + ')';
 
-  class _ extends React.Component {
+  class Connected extends React.Component {
     constructor(props, context) {
       super(props, context);
       this.store = builder.store || context.store;
@@ -116,10 +122,9 @@ Connector.prototype.build = function() {
       return <Component {...this.state} {...this.props} {...this.dispatchProps} />;
     }
   }
-  _.displayName = connectorDisplayName;
-  _.contextTypes = {
+  Connected.displayName = connectorDisplayName;
+  Connected.contextTypes = {
     store: storeShape
   };
-  return _;
+  return Connected;
 };
-
